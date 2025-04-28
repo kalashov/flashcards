@@ -49,6 +49,7 @@ struct FlashcardsView: View {
                 HStack(spacing: 20) {
                     Button(action: {
                         recordAnswer(known: false)
+                        ProgressService.shared.sendProgress(userId: userName, cardId: cards[currentIndex].id, status: "dont_know")
                     }) {
                         Text("Не знаю")
                             .font(.headline)
@@ -59,8 +60,10 @@ struct FlashcardsView: View {
                             .cornerRadius(10)
                     }
 
+
                     Button(action: {
                         recordAnswer(known: true)
+                        ProgressService.shared.sendProgress(userId: userName, cardId: cards[currentIndex].id, status: "know")
                     }) {
                         Text("Знаю")
                             .font(.headline)
@@ -70,6 +73,7 @@ struct FlashcardsView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
+
                 }
                 .padding(.horizontal)
             } else {
