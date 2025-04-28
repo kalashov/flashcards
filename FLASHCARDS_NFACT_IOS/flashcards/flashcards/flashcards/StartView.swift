@@ -3,6 +3,7 @@ import SwiftUI
 struct StartView: View {
     @Binding var userName: String
     @Binding var isStarted: Bool
+    
 
     var body: some View {
         VStack(spacing: 20) {
